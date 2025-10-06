@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="建築設計における意匠図の実施設計図面リストを掲載。必要な図面をチェックしてPDFとして出力でき、建築プロジェクトの見積・相談・打合せ時に活用できるサンプルリストです。">
+  <title>エイタ国際企画 | 意匠図 実施設計図面リスト</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      padding: 10px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p.notice {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: #444;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 8px;
+      vertical-align: middle;
+    }
+    th {
+      background: #eee;
+      text-align: left;
+    }
+    td select {
+      padding: 3px;
+      font-size: 12px;
+    }
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 6px;
+    }
+    #count {
+      text-align: right;
+      margin-top: 12px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    #pdfBtn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 8px 16px;
+      font-size: 14px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #pdfBtn:hover {
+      background: #1565c0;
+    }
+  </style>
+
+</head>
+<body>
+<header>
+  <h1 id="logo">
+    <a href="index.html">
+      <img src="img/logo.png" alt="一級建築士事務所 エイタ国際企画のロゴ">
+    </a>
+  </h1>
+
+  <div id="menubar_hdr" role="button" aria-label="メニュー切替" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div id="menubar" class="d-n">
+    <nav>
+      <ul>
+        <li><a href="projects.html" class="btn00"><span class="btn00__text">Projects</span><span class="btn00__text">施工実績</span></a></li>
+        <li><a href="corporate.html" class="btn00"><span class="btn00__text">Profile</span><span class="btn00__text">企業情報</span></a></li>
+        <li><a href="flow.html" class="btn00"><span class="btn00__text">Workflow</span><span class="btn00__text">設計の流れ</span></a></li>
+        <li><a href="contact.html" class="btn00"><span class="btn00__text">Contact Us</span><span class="btn00__text">お問い合わせ</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <div class="container" id="pdf-content">
+   <br><br> <h1>意匠図 実施設計図面リスト</h1>
+    <p class="notice">【必要図面にチェックを入れてPDF出力できます。お問い合わせ時などに添付してご利用ください。】</p>
+    <table id="drawings-table">
+      <thead>
+        <tr>
+          <th>選択</th>
+          <th>図面名称</th>
+          <th>枚数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><input type="checkbox" checked></td><td>図面目録</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>工事区分表</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>建築工事特記仕様書（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>概要・案内図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>敷地求積図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>敷地現況図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>配置図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>建物求積図（1～3）</td><td><select><option>1</option><option>2</option><option selected>3</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>仕上表</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>ピット平面図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>平面図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>立面図（1～2）</td><td><select><option>1</option><option selected>2</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>断面図（1～2）</td><td><select><option>1</option><option selected>2</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>矩計図（1～2）</td><td><select><option>1</option><option selected>2</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>階段詳細図（1～2）</td><td><select><option>1</option><option selected>2</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>共用部平面詳細図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>共用部展開図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>平面詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>展開図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>天井伏図（1～2）</td><td><select><option>1</option><option selected>2</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>建具キープラン</td><td>平面図の枚数に連動</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>各住戸建具キープラン</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>建具共通仕様書</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>建具表（1～3）</td><td><select><option>1</option><option>2</option><option selected>3</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>部分詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>間仕切り仕分け図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>外構平面図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>外構詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>水防ライン図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>セキュリティー・管理動線計画図</td><td>平面図の枚数に連動</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>断熱範囲図</td><td>平面図の枚数に連動</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>雨水系統図</td><td>平面図の枚数に連動</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>防水範囲図</td><td>平面図の枚数に連動</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>管理動線図</td><td>平面図の枚数に連動</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>平均地盤面算定図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>法チェック図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>日影図</td><td>1</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>天空率算定図</td><td>5</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>エレベーター詳細図</td><td>5</td></tr>
+        <tr><td><input type="checkbox" checked></td><td>駐輪場・バイク置場平面図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>集合郵便受け一体型宅配ボックス詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>ユニットバス詳細図キッチン詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>食器棚詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>洗面化粧台詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>家具図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+        <tr><td><input type="checkbox" checked></td><td>その他詳細図（1～5）</td><td><select><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></td></tr>
+      </tbody>
+    </table>
+
+    <div id="count">
+      ✔️ チェックされた図面：<span id="checkedCount">0</span> 件　
+      📄 合計枚数：<span id="totalPages">0</span> 枚
+    </div>
+    <button id="pdfBtn">📄 このページをPDFで保存</button>
+  </div>
+
+  <script>
+    function updateSummary() {
+      const rows = document.querySelectorAll("#drawings-table tbody tr");
+      let checkedCount = 0;
+      let totalPages = 0;
+      let floorPlanPages = 1;
+
+      rows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        if (!checkbox || !checkbox.checked) return;
+
+        checkedCount++;
+        const label = row.children[1].textContent.trim();
+        const cell = row.children[2];
+        const select = cell.querySelector('select');
+
+        let pages = 1;
+        if (select) {
+          pages = parseInt(select.value);
+          if (label.includes("平面図（1～5）")) {
+            floorPlanPages = pages;
+          }
+          
+        } else {
+          const fixedFiveList = [
+            "エレベーター詳細図",
+            "駐輪場・バイク置場平面図",
+            "集合郵便受け一体型宅配ボックス詳細図",
+            "ユニットバス詳細図キッチン詳細図",
+            "食器棚詳細図",
+            "洗面化粧台詳細図",
+            "家具図",
+            "天空率算定図"
+          ];
+
+          const linkedList = [
+            "セキュリティー・動線計画図",
+            "断熱範囲図",
+            "雨水系統図",
+            "防水範囲図",
+            "管理動線図",
+            "各住戸建具キープラン"
+          ];
+
+          if (fixedFiveList.includes(label)) {
+            pages = 5;
+          } else if (linkedList.includes(label)) {
+            pages = floorPlanPages;
+          }
+        }
+
+        totalPages += pages;
+      });
+
+      document.getElementById('checkedCount').textContent = checkedCount;
+      document.getElementById('totalPages').textContent = totalPages;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input[type="checkbox"], select').forEach(el => {
+        el.addEventListener('change', updateSummary);
+      });
+      updateSummary();
+
+      document.getElementById('pdfBtn').addEventListener('click', () => {
+        const element = document.getElementById('pdf-content');
+html2pdf().set({
+  margin: 0, // 余白を完全にゼロにする
+  filename: '設計図面リスト.pdf',
+  html2canvas: {
+    scale: 4, // 高画質化（2～4推奨）
+    useCORS: true, // 画像やフォントが外部にある場合に必要
+    scrollY: 0     // スクロールの影響排除
+  },
+  jsPDF: {
+    unit: 'mm',
+    format: 'a4',
+    orientation: 'portrait'
+  },
+  pagebreak: {
+    mode: ['avoid-all'], // 改ページを極力避ける
+  }
+}).from(element).save();
+
+
+      });
+    });
+  </script>
+
+<footer>
+<small>&copy; 2024-2025 <a href="index.html">ETA INTERNATIONAL PLANNING LLC.</a></small><br>
+</footer></div>
+
+<div id="cookie-banner" class="cookie-banner">
+当サイトでは、クッキー（Cookie）を使用しています。
+このウェブサイトを引き続き使用することにより、
+お客様はクッキーの使用に同意するものとします。
+<a href="cookie-policy.html">Learn more</a>
+<span class="close-banner" id="closeBanner">×</span></div>
+
+</body>
+</html>

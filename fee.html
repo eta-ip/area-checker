@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2D783MNRC"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-X2D783MNRC');</script>
+  <meta charset="UTF-8">
+  <title>設計概算費自動計算 | エイタ国際企画</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="description" content="住宅・オフィス・工場など様々な用途に対応した建築設計概算費用の自動計算ツール。設計料の内訳や総計を分かりやすく表示し、建築計画の初期検討に役立ちます。">
+  <meta property="og:title" content="設計概算費自動計算 | エイタ国際企画">
+  <meta property="og:description" content="東京都青梅市の建築設計事務所・エイタ国際企画の設計概算費自動計算">
+  <meta property="og:image" content="https://www.eita.co.jp/img/ogp.png">
+  <meta property="og:url" content="https://www.eita.co.jp/fee.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex, nofollow">
+
+<style>
+.card{background:#fff;border-radius:16px;padding:30px;max-width:800px;margin:20px auto;box-shadow:0 8px 24px rgba(0,0,0,0.1);transition:transform 0.2s ease,box-shadow 0.2s ease;}
+@media(max-width:600px){.card{padding:15px;}label{font-size:14px;}button{font-size:14px;padding:10px 14px;}}
+label{font-weight:bold;display:block;margin:15px 0 6px;font-size:15px;color:#444;}
+select,input[type="number"]{width:100%;padding:14px;font-size:16px;border-radius:8px;border:1px solid #ccc;outline:none;transition:border 0.2s ease,box-shadow 0.2s ease;box-sizing:border-box;}
+select:focus,input:focus{border-color:#d38c46;box-shadow:0 0 0 3px rgba(195,127,58,0.2);}
+button{padding:14px 20px;font-size:16px;border-radius:8px;border:none;font-weight:bold;cursor:pointer;letter-spacing:1px;transition:background 0.3s ease,transform 0.15s ease;}
+button:hover{transform:scale(1.02);}
+.result{margin-top:25px;padding:25px;border-radius:12px;font-size:16px;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.08);animation:fadeIn 0.5s ease;}
+.result h3{margin-bottom:15px;border-bottom:2px solid #eee;padding-bottom:10px;font-size:18px;color:#333;text-align:center;}
+.item,.sub-item{display:flex;justify-content:space-between;margin:8px 0;}
+@media(max-width:480px){.item,.sub-item{flex-direction:column;align-items:flex-start;}.item span,.sub-item span{margin-top:4px;}}
+.sub-item{font-size:.9em;color:#666;margin-left:10px;}
+hr{margin:20px 0;border:none;border-top:1px solid #ddd;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.button-row{display:flex;justify-content:center;gap:15px;margin-top:30px;}
+.button-row button{min-width:160px;}
+.button-row button[type="button"]{background:linear-gradient(135deg,#c57f3a,#c57f3a);color:#fff;}
+.button-row button[type="button"]:hover{background:linear-gradient(135deg,#d38c46,#d38c46);}
+.reset-btn{background:#777;color:#fff;}
+.reset-btn:hover{background:#555;}
+.page-wrapper{max-width:1000px;width:95%;margin:20px auto;padding:16px;border:2px solid #eee;border-radius:16px;background:#fafafa;box-shadow:0 6px 20px rgba(0,0,0,0.05);}
+@media(max-width:700px){.page-wrapper{max-width:100%;width:100%;margin:0;padding:10px 0;border:none;border-radius:0;box-shadow:none;background:#fff;}.card{max-width:100%;margin:0;padding:10px;border-radius:0;box-shadow:none;background:transparent;}}
+</style>
+
+</head>
+<body>
+<header>
+  <p id="logo"><a href="index.html"><img src="img/logo.png" alt="一級建築士事務所 エイタ国際企画のロゴ"></a></p>
+  <div id="menubar_hdr" role="button" aria-label="メニュー切替" tabindex="0"><span></span><span></span><span></span></div>
+  <div id="menubar" class="d-n">
+    <nav>
+      <ul>
+        <li><a href="projects.html" class="btn00"><span class="btn00__text">Projects</span><span class="btn00__text">施工実績</span></a></li>
+        <li><a href="corporate.html" class="btn00"><span class="btn00__text">Profile</span><span class="btn00__text">企業情報</span></a></li>
+        <li><a href="flow.html" class="btn00"><span class="btn00__text">Workflow</span><span class="btn00__text">設計の流れ</span></a></li>
+        <li><a href="contact.php" class="btn00"><span class="btn00__text">Contact Us</span><span class="btn00__text">お問い合わせ</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="container">
+  <div class="page-wrapper">
+    <main role="main">
+  <section>
+    <h1 id="section-title-flow">建築設計概算費用 自動計算ツール</h1>
+    <div class="table-wrapper">
+      <div class="card">
+        <form id="feeForm">
+          <label for="usage">建物用途</label>
+          <select id="usage" name="usage">
+        <option value="residential">住宅</option>
+        <option value="apartment">共同住宅</option>
+        <option value="office">事務所</option>
+        <option value="shop">店舗</option>
+        <option value="factory">工場</option>
+        <option value="warehouse">倉庫</option>
+        <option value="school">学校</option>
+        <option value="welfare">福祉施設</option>
+        <option value="hospital">病院</option>
+        <option value="other">その他</option>
+      </select>
+
+      <label for="structure">構造</label>
+      <select id="structure" name="structure">
+        <option value="wood">木造</option>
+        <option value="rc">RC造</option>
+        <option value="steel">鉄骨造</option>
+        <option value="src">SRC造</option>
+        <option value="pc">PC構造</option>
+      </select>
+
+      <label for="floorArea">延べ面積（㎡）</label>
+      <input type="number" id="floorArea" name="floorArea" required min="1">
+
+      <label for="location">建築場所（都道府県）</label>
+      <select id="location" name="location">
+        <option value="tokyo">東京都</option>
+        <option value="kanagawa">神奈川県</option>
+        <option value="chiba">千葉県</option>
+        <option value="saitama">埼玉県</option>
+        <option value="ibaraki">茨城県</option>
+        <option value="other">その他</option>
+      </select>
+
+          <div class="button-row">
+            <button type="button" onclick="calculate()">概算金額を表示</button>
+            <button type="reset" class="reset-btn">リセット</button>
+          </div>
+        </form>
+
+
+    <div class="result" id="result" style="display:none;">
+      <h3>設計業務別 概算設計料（税別）</h3>
+      <div class="item">① 企画設計料 <span id="planningDesign"></span></div>
+      <div class="item">② 基本設計料 <span id="basicDesign"></span></div>
+      <div class="item">③ 実施設計料（意匠設計）<span id="detailDesign"></span></div>
+      <div class="sub-item">（参考）③ に含まれるCADオペレーション費用 <span id="cadOperation"></span></div>
+      <div class="item">④ 構造設計料 <span id="structuralDesign"></span></div>
+      <div class="item">⑤ 機械設備設計料 <span id="mechanicalDesign"></span></div>
+      <div class="item">⑥ 電気設備設計料 <span id="electricalDesign"></span></div>
+      <div class="item">⑦ 確認申請・その他申請、届出代行料（審査手数料含む）<span id="application"></span></div>
+      <div class="item">⑧ 積算業務料 <span id="estimation"></span></div>
+      <div class="item">⑨ 工事監理料（中間検査・完了検査含む）<span id="supervision"></span></div>
+      <hr>
+      <div class="item"><strong>総計</strong> <span id="totalFee" style="font-size: 18px;"></span></div>
+    </div>
+      </div>
+    </div>
+  </section>
+</main></div>
+
+  <script>
+    function calculate() {
+      const usage = document.getElementById("usage").value;
+      const structure = document.getElementById("structure").value;
+      const floorArea = parseFloat(document.getElementById("floorArea").value);
+      const location = document.getElementById("location").value;
+
+      if (isNaN(floorArea) || floorArea <= 0) {
+        alert("延べ面積を正しく入力してください。");
+        return;
+      }
+
+      const baseUnitPrice = 10000;
+      const usageCoefficients = {
+        residential: 1.0, apartment: 1.1, office: 1.2, shop: 1.2,
+        factory: 1.3, warehouse: 1.1, school: 1.3, welfare: 1.2,
+        hospital: 1.4, other: 1.0
+      };
+      const structureCoefficients = {
+        wood: 1.0, rc: 1.2, steel: 1.1, src: 1.25, pc: 1.3
+      };
+      const locationCoefficients = {
+        tokyo: 1.1, kanagawa: 1.1, chiba: 1.05,
+        saitama: 1.05, ibaraki: 1.05, other: 1.0
+      };
+
+      const sqrtArea = Math.sqrt(floorArea);
+      const a = 0.00001;
+      const b = 0.02;
+      const c = 1.5;
+
+      let areaFactor = a * floorArea - b * sqrtArea + c;
+      if (areaFactor < 1.0) areaFactor = 1.0;
+
+      if (usage === 'factory' || usage === 'warehouse') {
+        if (floorArea >= 7000) areaFactor *= 0.7;
+        else if (floorArea >= 3000) areaFactor *= 0.8;
+      }
+
+      const coeff = (usageCoefficients[usage] || 1.0) *
+                    (structureCoefficients[structure] || 1.0) *
+                    (locationCoefficients[location] || 1.0);
+
+      const adjustedUnitPrice = baseUnitPrice * coeff * areaFactor;
+      let totalBase = adjustedUnitPrice * floorArea;
+      const minimumFee = 600000;
+      if (totalBase < minimumFee) totalBase = minimumFee;
+
+      // 各業務ごとの配分（合計で約98%。CAD費用は③に含む）
+      const breakdown = {
+        planning: 0.05, basic: 0.18, detail: 0.27,
+        structural: (structure !== "wood" || floorArea >= 300) ? 0.10 : 0,
+        mechanical: 0.07, electrical: 0.07,
+        application: 0.06, estimation: 0.06,
+        supervision: 0.12
+      };
+
+      const planning = totalBase * breakdown.planning;
+      const basic = totalBase * breakdown.basic;
+      const detail = totalBase * breakdown.detail;
+
+      let cadRate;
+      if (detail <= 5000000) {
+        cadRate = 0.6;
+      } else if (detail >= 100000000) {
+        cadRate = 0.2;
+      } else {
+        const x0 = 5000000, x1 = 100000000, y0 = 0.6, y1 = 0.2;
+        const m = (y1 - y0) / (x1 - x0);
+        cadRate = m * (detail - x0) + y0;
+      }
+
+      const cadOperation = detail * cadRate;
+
+      const structural = totalBase * breakdown.structural;
+      const mechanical = totalBase * breakdown.mechanical;
+      const electrical = totalBase * breakdown.electrical;
+      const application = totalBase * breakdown.application + 150000;
+      const estimation = totalBase * breakdown.estimation;
+      const supervision = totalBase * breakdown.supervision;
+
+      const total = planning + basic + detail + structural + mechanical + electrical + application + estimation + supervision;
+
+      const format = (n) => `${Math.round(n).toLocaleString()} 円`;
+      document.getElementById("planningDesign").textContent = format(planning);
+      document.getElementById("basicDesign").textContent = format(basic);
+      document.getElementById("detailDesign").textContent = format(detail);
+      document.getElementById("cadOperation").textContent = format(cadOperation);
+      document.getElementById("structuralDesign").textContent = structural > 0 ? format(structural) : '―';
+      document.getElementById("mechanicalDesign").textContent = format(mechanical);
+      document.getElementById("electricalDesign").textContent = format(electrical);
+      document.getElementById("application").textContent = format(application);
+      document.getElementById("estimation").textContent = format(estimation);
+      document.getElementById("supervision").textContent = format(supervision);
+      document.getElementById("totalFee").textContent = format(total);
+
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+<footer>
+<small>&copy; 2024-2025 <a href="index.html">ETA INTERNATIONAL PLANNING LLC.</a></small><br>
+</footer></div>
+
+<div id="cookie-banner" class="cookie-banner">
+当サイトでは、クッキー（Cookie）を使用しています。
+このウェブサイトを引き続き使用することにより、
+お客様はクッキーの使用に同意するものとします。
+<a href="cookie-policy.html">Learn more</a>
+<span class="close-banner" id="closeBanner">×</span></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.5.4/vegas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+  <script src="js/main.js"></script>
+  <div id="overlay"></div>
+</body>
+</html>
